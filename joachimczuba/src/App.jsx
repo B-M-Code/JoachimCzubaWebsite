@@ -1,11 +1,8 @@
 import { useState } from "react";
+import "./styles/app.scss";
 
 function App() {
-  return (
-    <>
-      <h1>Witaj Świecie!</h1>
-    </>
-  );
+  return <></>;
 }
 
 export default App;
