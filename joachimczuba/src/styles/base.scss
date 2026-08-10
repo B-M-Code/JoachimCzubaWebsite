@@ -1,0 +1,29 @@
+$black: #1e1e1e;
+$white: #ffffff;
+
+@mixin FlexCenter($flex-direction: column) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $flex-direction;
+}
+
+@mixin Media($operator, $px) {
+  @if $operator == "<" {
+    @media (max-width: $px) {
+      @content;
+    }
+  } @else if $operator == ">" {
+    @media (min-width: $px) {
+      @content;
+    }
+  } @else if $operator == "<h" {
+    @media (max-height: $px) {
+      @content;
+    }
+  } @else if $operator == ">h" {
+    @media (min-height: $px) {
+      @content;
+    }
+  }
+}
