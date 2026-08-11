@@ -1,0 +1,81 @@
+@use "../../../styles/base.scss" as *;
+
+main {
+  width: 100svw;
+  height: 100svh;
+
+  * {
+    color: $white;
+    font-family: "Inter", sans-serif;
+  }
+
+  .frame {
+    position: relative;
+    margin: 2svh 1svw;
+    width: 98svw;
+    height: 96svh;
+    border: 1px solid $white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .bottom__content {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .wrapper:first-of-type {
+        p:first-of-type {
+          font-size: $font-size-body-m;
+          font-weight: 800;
+          text-transform: uppercase;
+        }
+
+        p:last-of-type {
+          font-size: $font-size-small-m;
+          font-weight: 600;
+
+          a:first-of-type {
+            margin-right: 0.15rem;
+          }
+
+          a:last-of-type {
+            margin-left: 0.15rem;
+          }
+        }
+      }
+
+      .wrapper:last-of-type {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        flex-direction: column;
+
+        p:first-of-type {
+          font-size: $font-size-small-m;
+          font-weight: 700;
+        }
+
+        p:last-of-type {
+          font-size: $font-size-small-s;
+          font-weight: 500;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .bg {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100svw;
+    height: 100svh;
+    background-image: url("../../../assets/homepic.webp");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.75;
+  }
+}

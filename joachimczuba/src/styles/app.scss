@@ -1,1 +1,10 @@
 @use "../styles/base.scss" as *;
+
+body {
+  overflow: hidden;
+  background: $black;
+
+  @include Media("<", 1000px) {
+    overflow: auto;
+  }
+}

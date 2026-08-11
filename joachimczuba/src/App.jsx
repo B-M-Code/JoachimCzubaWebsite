@@ -1,10 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
-import Home from "./components/pages/Home.jsx";
+import Home from "./components/pages/Home/Home.jsx";
 import About from "./components/pages/About.jsx";
 import Contact from "./components/pages/Contact.jsx";
 import Offer from "./components/pages/Offer.jsx";
 import NotFound from "./components/pages/NotFound.jsx";
+
+import "./styles/app.scss";
 
 export default function App() {
   return (
