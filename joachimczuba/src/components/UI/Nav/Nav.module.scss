@@ -1,0 +1,46 @@
+@use "../../../styles/base.scss" as *;
+
+nav {
+  * {
+    color: $white;
+    font-family: "Inter", sans-serif;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  width: calc(100svw - (2svw + 20px));
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  margin: calc(1svh + 15px) calc(1svw + 10px);
+
+  .logo {
+    * {
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: $font-size-heading;
+      font-weight: 900;
+    }
+
+    h2 {
+      font-size: $font-size-title-m;
+      font-weight: 800;
+      opacity: 0.75;
+    }
+  }
+
+  .menu {
+    font-size: $font-size-title;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+
+    cursor: pointer;
+  }
+
+  ol {
+    list-style: none;
+  }
+}
