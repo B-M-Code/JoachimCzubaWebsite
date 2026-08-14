@@ -16,15 +16,6 @@ export default function Layout() {
         <h2>Trener Kalisteniki</h2>
       </div>
       <div className={N.menu}>menu</div>
-      {/* <ol>
-        {links.map((link) => (
-          <li key={link.to}>
-            <NavLink to={link.to} end={link.end}>
-              {link.label}
-            </NavLink>
-          </li>
-        ))}
-      </ol> */}
     </nav>
   );
 }
