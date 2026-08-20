@@ -42,7 +42,7 @@ export default function Nav() {
                   to={link.to}
                   end={link.end}
                   onClick={closeMenu}
-                  style={{ "--i": `"(0${i + 1})"` }}
+                  style={{ "--i": `"(0${i + 1})"`, "--order": i }}
                   className={({ isActive }) =>
                     isActive ? N.active : undefined
                   }
