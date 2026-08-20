@@ -1,0 +1,7 @@
+@use "../../../styles/base.scss" as *;
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

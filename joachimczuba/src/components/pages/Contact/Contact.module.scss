@@ -1,194 +1,35 @@
 @use "../../../styles/base.scss" as *;
-.page {
-  background: #000;
-  color: #fff;
-  overflow: hidden;
-}
 
-.hero {
-  height: 40vh;
-  background: #1a1a1a url("/hero.jpg") center/cover no-repeat;
-  position: relative;
-}
+main {
+  width: 100svw;
+  height: 85svh;
 
-.contactSection {
-  padding: 60px 32px 40px;
-}
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
 
-.heading {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 32px;
-
-  .line {
-    width: 40px;
-    height: 1px;
-    background: rgba(255, 255, 255, 0.4);
-  }
-
-  h2 {
-    font-size: 1.8rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    margin: 0;
-  }
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.formCol,
-.imageCol {
-  width: 100%;
-}
-
-.intro {
-  font-size: 0.8rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 8px;
-}
-
-.introSmall {
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 24px;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-
-  input,
-  textarea {
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    color: #fff;
-    font-size: 0.8rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 10px 4px;
-    outline: none;
-    font-family: inherit;
-
-    &::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+    .img {
+      position: absolute;
+      width: 100%;
+      height: 85svh;
+      background-image: url("../../../assets/IMG_1919_1_.webp");
+      background-size: cover;
+      background-position: center;
+      opacity: 0.7;
     }
 
-    &:focus {
-      border-color: #fff;
+    .gradient {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0),
+        rgba(0, 0, 0, 1)
+      );
     }
-  }
-
-  textarea {
-    resize: none;
-    text-transform: none;
-
-    &::placeholder {
-      text-transform: none;
-    }
-  }
-}
-
-.submitBtn {
-  align-self: flex-start;
-  margin-top: 12px;
-  padding: 10px 28px;
-  background: transparent;
-  border: 1px solid #fff;
-  color: #fff;
-  font-size: 0.75rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition:
-    background 0.2s ease,
-    color 0.2s ease;
-
-  &:hover {
-    background: #fff;
-    color: #000;
-  }
-}
-
-.contactImage {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  background: #1a1a1a url("/kuchnia.jpg") center/cover no-repeat;
-}
-
-.errorMsg {
-  color: #ff6b6b;
-  font-size: 0.75rem;
-  margin: -8px 0 0;
-}
-
-.footer {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 24px 32px 8px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: 0.7rem;
-
-  p {
-    color: rgba(255, 255, 255, 0.6);
-    margin: 0;
-  }
-}
-
-.footerLinks {
-  display: flex;
-  gap: 24px;
-
-  a {
-    color: #fff;
-    text-decoration: none;
-    letter-spacing: 0.1em;
-    font-weight: 600;
-
-    &:hover {
-      color: rgba(255, 255, 255, 0.6);
-    }
-  }
-}
-
-.bigName {
-  font-size: 22vw;
-  font-weight: 800;
-  line-height: 0.85;
-  text-align: center;
-  letter-spacing: -0.02em;
-  padding-bottom: 4vw;
-  color: #fff;
-}
-
-@media (min-width: 900px) {
-  .content {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .formCol,
-  .imageCol {
-    flex: 1;
-  }
-
-  .footer {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .bigName {
-    font-size: 14vw;
   }
 }

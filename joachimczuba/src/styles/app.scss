@@ -1,10 +1,14 @@
 @use "../styles/base.scss" as *;
 
-body {
-  overflow: hidden;
-  background: $black;
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 
-  @include Media("<", 1000px) {
-    overflow: auto;
-  }
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: $black;
 }
