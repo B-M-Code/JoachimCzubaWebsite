@@ -46,7 +46,9 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className={H.bg} ref={bgRef}></div>
+      <div className={H.bg_block}></div>
+      <div className={H.bg_gradient_block}></div>
+      <div className={H.bg}></div>
     </main>
   );
 }
