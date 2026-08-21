@@ -1,0 +1,87 @@
+@use "../../../styles/base.scss" as *;
+
+.page {
+  width: 100svw;
+  height: 100svh;
+
+  .bg {
+    width: 100svw;
+    height: 100svh;
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    background-image: url("../../../assets/APC_7622.webp");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.6;
+  }
+
+  .gradient {
+    width: 100svw;
+    height: 100svh;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: radial-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+    opacity: 0.6;
+  }
+
+  @include FlexCenter;
+
+  * {
+    color: $white;
+    font-family: "Inter", sans-serif;
+  }
+
+  h1 {
+    font-size: $font-size-big;
+    font-weight: 800;
+
+    strong {
+      animation: anim 7s infinite;
+    }
+  }
+
+  p {
+    letter-spacing: 2px;
+    font-size: $font-size-small;
+
+    @include Media("<", 725px) {
+      letter-spacing: 1px;
+    }
+  }
+
+  .btn {
+    border: 2px $white solid;
+    padding: 7px 20px;
+    border-radius: 17px;
+    margin-top: 2rem;
+    text-decoration: none;
+    backdrop-filter: blur(2px);
+    transition: 0.25s ease;
+    font-size: $font-size-small;
+    letter-spacing: 2px;
+
+    @include Media("<", 725px) {
+      letter-spacing: 1px;
+    }
+
+    &:hover {
+      backdrop-filter: blur(8px);
+    }
+  }
+}
+
+@keyframes anim {
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0.5;
+  }
+  60% {
+    opacity: 1;
+  }
+}
