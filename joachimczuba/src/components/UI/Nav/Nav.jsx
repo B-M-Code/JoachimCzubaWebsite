@@ -19,10 +19,10 @@ export default function Nav() {
     <>
       <nav className={`${N.nav} ${isOpen ? N.menuOnly : ""}`}>
         {!isOpen && (
-          <div className={N.logo}>
+          <NavLink to="/" className={N.logo}>
             <h1>Joachim Czuba</h1>
             <h2>Trener Kalisteniki</h2>
-          </div>
+          </NavLink>
         )}
 
         <div className={N.menu} onClick={toggleMenu}>
