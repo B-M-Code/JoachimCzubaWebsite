@@ -5,6 +5,7 @@ import About from "./components/pages/About/About.jsx";
 import Contact from "./components/pages/Contact/Contact.jsx";
 import Offer from "./components/pages/Offer/Offer.jsx";
 import NotFound from "./components/pages/NotFound/NotFound.jsx";
+import LoadingScreen from "./components/UI/LoadingScreen/LoadingScreen.jsx";
 
 import "./styles/app.scss";
 

@@ -1,0 +1,64 @@
+@use "../../../styles/base.scss" as *;
+
+.loading_screen {
+  width: calc(100svw - 2px);
+  height: calc(100svh - 2px);
+  margin: 1px;
+  border: 1px solid $white;
+  background: $black;
+  transition:
+    opacity 0.4s ease,
+    visibility 0.4s ease;
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+
+  @include FlexCenter;
+
+  .loading_screen_content {
+    color: $white;
+    font-family: "inter", sans-serif;
+    letter-spacing: 10px;
+    font-weight: 100;
+    transition: 0.3s ease-in-out;
+
+    @include FlexCenter;
+
+    .wrapper {
+      height: 2px;
+
+      .dots::after {
+        content: "";
+        animation: dots 2s infinite;
+        font-size: $font-size-heading;
+      }
+    }
+  }
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  25% {
+    content: ".";
+  }
+  50% {
+    content: "..";
+  }
+  75% {
+    content: "...";
+  }
+}
