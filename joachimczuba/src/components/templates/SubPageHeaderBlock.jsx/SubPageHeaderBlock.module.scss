@@ -3,5 +3,73 @@
 .container {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  transform: translateY(-50px);
+  position: relative;
+  z-index: 2;
+  padding: calc(1svh + 15px) calc(1svw + 10px);
+
+  * {
+    color: $white;
+    font-family: "inter", sans-serif;
+  }
+
+  div {
+    width: 50%;
+
+    h1 {
+      text-transform: uppercase;
+      font-size: $font-size-big-s;
+      font-weight: 900;
+      @include FlexCenter(row);
+      gap: 20px;
+      justify-content: flex-start;
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 100px;
+        height: 2px;
+        background: $white;
+        opacity: 0.5;
+      }
+    }
+
+    &:nth-of-type(2) {
+      margin-top: 150px;
+      @include FlexCenter(row);
+      justify-content: flex-end;
+
+      .wrapper {
+        width: 60%;
+
+        div {
+          width: 100%;
+          @include FlexCenter;
+          gap: 30px;
+        }
+
+        @include FlexCenter(row);
+        gap: 20px;
+        justify-content: flex-end;
+
+        &::after {
+          content: "";
+          display: inline-block;
+          width: 100px;
+          height: 2px;
+          background: $white;
+          opacity: 0.5;
+        }
+
+        p {
+          font-size: $font-size-body;
+
+          &:nth-of-type(2) {
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
 }

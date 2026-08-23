@@ -2,6 +2,8 @@ import { useForm, ValidationError } from "@formspree/react";
 
 import styles from "./Contact.module.scss";
 
+import SubPageHeaderBlock from "../../templates/SubPageHeaderBlock.jsx/SubPageHeaderBlock";
+
 export default function Contact() {
   const [state, handleSubmit] = useForm("mbgrgvwj");
 
@@ -18,7 +20,15 @@ export default function Contact() {
         </div>
       </main>
 
-      <form onSubmit={handleSubmit}>
+      <SubPageHeaderBlock
+        title={"Kontakt"}
+        text={
+          "Gotowy, żeby zacząć budować swoją formę? Napisz do mnie, a razem ustalimy najlepszy plan działania i ruszymy do pracy."
+        }
+        subtext={"Im szybciej zaczniesz, tym szybciej zobaczysz efekty."}
+      />
+
+      {/* <form onSubmit={handleSubmit}>
         <input type="text" name="name" placeholder="Imię i nazwisko" required />
 
         <input type="email" name="email" placeholder="Email" required />
@@ -36,7 +46,7 @@ export default function Contact() {
         </button>
 
         <ValidationError errors={state.errors} />
-      </form>
+      </form> */}
     </>
   );
 }

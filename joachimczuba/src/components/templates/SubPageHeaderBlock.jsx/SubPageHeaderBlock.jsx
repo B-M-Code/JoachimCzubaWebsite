@@ -7,8 +7,12 @@ export default function TextBlock({ title, text, subtext }) {
         <h1>{title}</h1>
       </div>
       <div className={styles.text_wrapper}>
-        <p>{text}</p>
-        <p className={styles.subtext}>{subtext}</p>
+        <div className={styles.wrapper}>
+          <div>
+            <p>{text}</p>
+            <p className={styles.subtext}>{subtext}</p>
+          </div>
+        </div>
       </div>
     </div>
   );
