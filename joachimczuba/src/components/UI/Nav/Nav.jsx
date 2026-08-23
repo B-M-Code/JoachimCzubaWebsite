@@ -26,7 +26,9 @@ export default function Nav() {
         )}
 
         <div className={N.menu} onClick={toggleMenu}>
-          {isOpen ? "Wróć" : "Menu"}
+          <span key={isOpen ? "close" : "open"} className={N.menuText}>
+            {isOpen ? "Wróć" : "Menu"}
+          </span>
         </div>
       </nav>
 
