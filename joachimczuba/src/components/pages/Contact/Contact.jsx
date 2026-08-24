@@ -28,25 +28,32 @@ export default function Contact() {
         subtext={"Im szybciej zaczniesz, tym szybciej zobaczysz efekty."}
       />
 
-      {/* <form onSubmit={handleSubmit}>
-        <input type="text" name="name" placeholder="Imię i nazwisko" required />
+      <section>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="name">Imie</label>
+          <input type="text" name="name" required />
 
-        <input type="email" name="email" placeholder="Email" required />
-        <ValidationError prefix="Email" field="email" errors={state.errors} />
+          <label htmlFor="email">Email</label>
+          <input type="email" name="email" required />
+          <ValidationError prefix="Email" field="email" errors={state.errors} />
 
-        <textarea name="message" placeholder="Wiadomość" rows={4} required />
-        <ValidationError
-          prefix="Wiadomość"
-          field="message"
-          errors={state.errors}
-        />
+          <label htmlFor="message">Wiadomość</label>
+          <textarea name="message" required />
+          <ValidationError
+            prefix="Wiadomość"
+            field="message"
+            errors={state.errors}
+          />
 
-        <button type="submit" disabled={state.submitting}>
-          {state.submitting ? "Wysyłanie..." : "Wyślij"}
-        </button>
+          <button type="submit" disabled={state.submitting}>
+            {state.submitting ? "Wysyłanie..." : "Wyślij"}
+          </button>
 
-        <ValidationError errors={state.errors} />
-      </form> */}
+          <ValidationError errors={state.errors} />
+        </form>
+        <div className={styles.bg_gradient}></div>
+        <div className={styles.bg}></div>
+      </section>
     </>
   );
 }
