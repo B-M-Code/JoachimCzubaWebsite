@@ -41,7 +41,7 @@
       justify-content: flex-end;
 
       .wrapper {
-        width: 60%;
+        width: 500px;
 
         div {
           width: 100%;
@@ -50,7 +50,6 @@
         }
 
         @include FlexCenter(row);
-        gap: 20px;
         justify-content: flex-end;
 
         &::after {
@@ -60,10 +59,12 @@
           height: 2px;
           background: $white;
           opacity: 0.5;
+          flex-shrink: 0;
         }
 
         p {
           font-size: $font-size-body;
+          margin-right: 30px;
 
           &:nth-of-type(2) {
             opacity: 0.5;
