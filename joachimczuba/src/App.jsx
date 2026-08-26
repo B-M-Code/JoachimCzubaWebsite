@@ -8,7 +8,9 @@ import NotFound from "./components/pages/NotFound/NotFound.jsx";
 import LoadingScreen from "./components/UI/LoadingScreen/LoadingScreen.jsx";
 import useLenis from "./hooks/useLenis.js";
 import useDelayedTransition from "./hooks/useDelayedTransition.js";
+import useZoomIn from "./hooks/useZoomIn.js";
 
+import styles from "./styles/zoomIn.module.scss";
 import "./styles/app.scss";
 
 export default function App() {
@@ -24,19 +26,26 @@ export default function App() {
     },
   );
 
+  // trigger = true dokładnie wtedy, gdy loader zaczyna znikać (visible === false)
+  const zoomVisible = useZoomIn(displayedLocation.pathname, !visible);
+
   return (
     <>
       {mounted && <LoadingScreen visible={visible} />}
 
-      <Routes location={displayedLocation}>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="o-mnie" element={<About />} />
-          <Route path="oferta" element={<Offer />} />
-          <Route path="kontakt" element={<Contact />} />
-        </Route>
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div
+        className={`${styles.zoom} ${zoomVisible ? styles.visible : styles.hidden}`}
+      >
+        <Routes location={displayedLocation}>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="o-mnie" element={<About />} />
+            <Route path="oferta" element={<Offer />} />
+            <Route path="kontakt" element={<Contact />} />
+          </Route>
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </>
   );
 }
