@@ -24,13 +24,27 @@
 
     @include FlexCenter;
 
-    .wrapper {
-      height: 2px;
+    p {
+      margin-bottom: 35px;
+    }
 
-      .dots::after {
-        content: "";
-        animation: dots 2s infinite;
-        font-size: $font-size-heading;
+    .dots {
+      @include FlexCenter(row);
+      gap: 20px;
+      width: 100px;
+
+      .dot {
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background: $white;
+
+        @for $i from 1 through 3 {
+          &:nth-of-type(#{$i}) {
+            animation-delay: calc(0.35s * $i) !important;
+            animation: dotAnimation 1.5s infinite ease-in-out;
+          }
+        }
       }
     }
   }
@@ -48,17 +62,8 @@
   pointer-events: none;
 }
 
-@keyframes dots {
-  0% {
-    content: "";
-  }
-  25% {
-    content: ".";
-  }
+@keyframes dotAnimation {
   50% {
-    content: "..";
-  }
-  75% {
-    content: "...";
+    transform: translateY(-10px);
   }
 }

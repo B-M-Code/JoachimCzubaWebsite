@@ -7,8 +7,10 @@ export default function LoadingScreen({ visible }) {
     >
       <div className={styles.loading_screen_content}>
         <p>Ładowanie</p>
-        <div className={styles.wrapper}>
-          <div className={styles.dots}></div>
+        <div className={styles.dots}>
+          <div className={styles.dot}></div>
+          <div className={styles.dot}></div>
+          <div className={styles.dot}></div>
         </div>
       </div>
     </div>
