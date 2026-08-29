@@ -3,6 +3,7 @@
 html {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow-x: hidden;
 }
 
 html::-webkit-scrollbar {
@@ -10,5 +11,6 @@ html::-webkit-scrollbar {
 }
 
 body {
+  // overflow-x: hidden;
   background: $black;
 }

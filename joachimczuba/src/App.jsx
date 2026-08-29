@@ -38,11 +38,11 @@ export default function App() {
       >
         <Routes location={displayedLocation}>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
             <Route path="o-mnie" element={<About />} />
             <Route path="oferta" element={<Offer />} />
             <Route path="kontakt" element={<Contact />} />
           </Route>
+          <Route index element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

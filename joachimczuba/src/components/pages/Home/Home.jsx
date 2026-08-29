@@ -1,6 +1,8 @@
 import { useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 
+import NavBar from "../../UI/Nav/Nav";
+
 import H from "./Home.module.scss";
 
 export default function Home() {
@@ -24,31 +26,34 @@ export default function Home() {
   }, []);
 
   return (
-    <main onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-      <div className={H.frame} ref={frameRef}>
-        <div></div>
-        <div className={H.bottom__content}>
-          <div className={H.wrapper}>
-            <p>Realizacja</p>
-            <p>
-              <a href="https://klemensowicz.pl/" target="_blank">
-                Klemensowicz
-              </a>
-              &
-              <a href="https://github.com/Czwartek123" target="_blank">
-                Piatek
-              </a>
-            </p>
-          </div>
-          <div className={H.wrapper}>
-            <p>Copyright © {new Date().getFullYear()} Joachim Czuba</p>
-            <p>Wszystkie prawa zastrzeżone.</p>
+    <>
+      <NavBar />
+      <main onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <div className={H.frame} ref={frameRef}>
+          <div></div>
+          <div className={H.bottom__content}>
+            <div className={H.wrapper}>
+              <p>Realizacja</p>
+              <p>
+                <a href="https://klemensowicz.pl/" target="_blank">
+                  Klemensowicz
+                </a>
+                &
+                <a href="https://github.com/Czwartek123" target="_blank">
+                  Piatek
+                </a>
+              </p>
+            </div>
+            <div className={H.wrapper}>
+              <p>Copyright © {new Date().getFullYear()} Joachim Czuba</p>
+              <p>Wszystkie prawa zastrzeżone.</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={H.bg_block}></div>
-      <div className={H.bg_gradient_block}></div>
-      <div className={H.bg}></div>
-    </main>
+        <div className={H.bg_block}></div>
+        <div className={H.bg_gradient_block}></div>
+        <div className={H.bg}></div>
+      </main>
+    </>
   );
 }
