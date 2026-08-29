@@ -39,7 +39,9 @@ main {
 section {
   width: 100svw;
   padding: calc(1svw + 130px);
+  margin: 50px 0px;
   display: flex;
+  position: relative;
 
   form {
     * {
@@ -59,6 +61,7 @@ section {
     textarea {
       resize: none;
       width: 80% !important;
+      height: 225px;
 
       background: rgba(0, 0, 0, 0.5);
       border: none;
@@ -75,6 +78,17 @@ section {
 
     label {
       letter-spacing: 1px;
+      transition: 0.35s ease;
+
+      &:first-of-type,
+      &:nth-of-type(2),
+      &:nth-of-type(3) {
+        transform: translate(10px, 150%);
+
+        &.selected {
+          transform: translate(0px, 0%);
+        }
+      }
     }
 
     input {
@@ -90,8 +104,102 @@ section {
 
       &:focus {
         outline: none;
-        backdrop-filter: blur(8px);
+        // backdrop-filter: blur(8px);
       }
+    }
+
+    .nativeSelectHidden {
+      display: none;
+    }
+
+    .customSelectWrapper {
+      position: relative;
+      width: 80%;
+      margin-bottom: 50px;
+    }
+
+    .customSelect {
+      position: relative;
+      user-select: none;
+    }
+
+    .customSelectTrigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-bottom: 3px $white solid;
+      padding: 10px;
+      font-size: $font-size-body;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &::after {
+        content: "";
+        width: 8px;
+        height: 8px;
+        margin-left: 10px;
+        border-right: 2px solid $white;
+        border-bottom: 2px solid $white;
+        transform: rotate(45deg);
+        transition: transform 0.25s ease;
+        flex-shrink: 0;
+      }
+    }
+
+    .customSelect.opened .customSelectTrigger {
+      backdrop-filter: blur(8px);
+
+      &::after {
+        transform: rotate(-135deg);
+      }
+    }
+
+    .customOptions {
+      position: absolute;
+      top: calc(100% + 2px);
+      left: 0;
+      right: 0;
+      z-index: 5;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition:
+        opacity 0.25s ease,
+        transform 0.25s ease;
+    }
+
+    .customSelect.opened .customOptions {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .customOption {
+      display: block;
+      padding: 10px;
+      font-size: $font-size-body;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: 0.25s;
+      border: 1px solid $white;
+      margin: 2px 0px;
+
+      &:hover {
+        background: $white;
+        color: $black;
+      }
+    }
+
+    .customOption.selection {
+      font-weight: 800;
     }
 
     button {
@@ -134,5 +242,38 @@ section {
     height: calc(840px + 2svw);
     transform: translateY(calc(-0.5svw - 70px));
     background: linear-gradient(90deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  }
+}
+
+.message_wrapper {
+  width: 50svw;
+  height: 50svh;
+  margin: 20svh 25svw;
+
+  background: url(../../../assets/IMG_1873_Darker.jpg);
+  background-size: cover;
+  box-shadow: inset 0px 0px 50px 50px $black;
+
+  border: 1px solid $white;
+  border-top-width: 25px;
+  border-bottom-right-radius: 50px;
+  @include FlexCenter;
+
+  p {
+    color: $white;
+    font-family: "inter", sans-serif;
+    text-align: center;
+    font-size: $font-size-body;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    padding: 5px;
+    text-shadow: 0px 0px 5px $black;
+    font-weight: 700;
+  }
+
+  span {
+    color: $white;
+
+    font-size: $font-size-big;
   }
 }
