@@ -26,7 +26,6 @@ export default function App() {
     },
   );
 
-  // trigger = true dokładnie wtedy, gdy loader zaczyna znikać (visible === false)
   const zoomVisible = useZoomIn(displayedLocation.pathname, !visible);
 
   return (
