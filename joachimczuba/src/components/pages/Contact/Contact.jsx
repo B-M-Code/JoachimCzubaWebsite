@@ -6,10 +6,10 @@ import styles from "./Contact.module.scss";
 import SubPageHeaderBlock from "../../templates/SubPageHeaderBlock.jsx/SubPageHeaderBlock";
 
 const PACKAGE_OPTIONS = [
-  { value: "Pakiet podstawowy", label: "Pakiet podstawowy" },
-  { value: "Pakiet standard", label: "Pakiet standard" },
-  { value: "Pakiet premium", label: "Pakiet premium" },
-  { value: "Pakiet indywidualny", label: "Pakiet indywidualny" },
+  { value: "Start Progresji", label: "Start Progresji" },
+  { value: "Pełne Wsparcie", label: "Pełne Wsparcie" },
+  { value: "Wspólny Trening", label: "Wspólny Trening" },
+  { value: "Inne", label: "Inne" },
 ];
 
 export default function Contact() {
