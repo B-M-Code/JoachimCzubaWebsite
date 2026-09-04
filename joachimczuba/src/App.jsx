@@ -17,7 +17,7 @@ export default function App() {
 
   const { visible, mounted, goTo } = useDelayedTransition({
     fadeIn: 300,
-    hold: 150,
+    hold: 300,
     fadeOut: 300,
   });
 
