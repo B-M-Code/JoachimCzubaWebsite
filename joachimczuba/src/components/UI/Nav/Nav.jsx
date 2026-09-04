@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { NavigationContext } from "../../../context/NavigationContext.js";
 import N from "./Nav.module.scss";
 
 const links = [
@@ -11,15 +12,37 @@ const links = [
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const goTo = useContext(NavigationContext);
+  const closeTimer = useRef(null);
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
-  const closeMenu = () => setIsOpen(false);
+
+  // zamyka menu z opóźnieniem 200ms
+  const closeMenuDelayed = () => {
+    clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => {
+      setIsOpen(false);
+    }, 400);
+  };
+
+  const handleNavigate = (e, to) => {
+    e.preventDefault();
+    goTo(to);
+    closeMenuDelayed();
+  };
+
+  // sprzątanie timera przy odmontowaniu komponentu
+  useEffect(() => () => clearTimeout(closeTimer.current), []);
 
   return (
     <>
       <nav className={`${N.nav} ${isOpen ? N.menuOnly : ""}`}>
         {!isOpen && (
-          <NavLink to="/" className={N.logo}>
+          <NavLink
+            to="/"
+            className={N.logo}
+            onClick={(e) => handleNavigate(e, "/")}
+          >
             <h1>Joachim Czuba</h1>
             <h2>Trener Kalisteniki</h2>
           </NavLink>
@@ -43,7 +66,7 @@ export default function Nav() {
                 <NavLink
                   to={link.to}
                   end={link.end}
-                  onClick={closeMenu}
+                  onClick={(e) => handleNavigate(e, link.to)}
                   style={{ "--i": `"(0${i + 1})"`, "--order": i }}
                   className={({ isActive }) =>
                     isActive ? N.active : undefined

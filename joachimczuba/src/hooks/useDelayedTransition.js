@@ -1,71 +1,67 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function useDelayedTransition(
-  location,
-  { fadeIn = 300, hold = 150, fadeOut = 300 } = {},
-) {
-  const [displayedLocation, setDisplayedLocation] = useState(location);
+export default function useDelayedTransition({
+  fadeIn = 300,
+  hold = 150,
+  fadeOut = 300,
+} = {}) {
   const [visible, setVisible] = useState(true);
   const [mounted, setMounted] = useState(true);
-  const isFirstLoad = useRef(true);
+  const navigate = useNavigate();
+  const timers = useRef([]);
+  const rafIds = useRef([]);
 
-  // ref śledzi aktualnie wyświetlaną trasę BEZ wywoływania efektu ponownie
-  const displayedPathRef = useRef(location.pathname);
+  const clearTimers = () => {
+    timers.current.forEach(clearTimeout);
+    timers.current = [];
+    rafIds.current.forEach(cancelAnimationFrame);
+    rafIds.current = [];
+  };
 
+  // pierwsze wejście na stronę — samo intro, bez nawigacji
   useEffect(() => {
-    let rafId1, rafId2, swapTimer, holdTimer, hideTimer;
+    const t = setTimeout(() => {
+      setVisible(false);
+      const h = setTimeout(() => setMounted(false), fadeOut);
+      timers.current.push(h);
+    }, fadeIn + hold);
+    timers.current.push(t);
 
-    if (isFirstLoad.current) {
+    return clearTimers;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const goTo = useCallback(
+    (path, { onCovered } = {}) => {
+      clearTimers();
       setMounted(true);
-      setVisible(true);
+      setVisible(false);
 
-      holdTimer = setTimeout(() => {
-        setVisible(false);
-        hideTimer = setTimeout(() => {
-          setMounted(false);
-          isFirstLoad.current = false;
-        }, fadeOut);
-      }, fadeIn + hold);
+      const raf1 = requestAnimationFrame(() => {
+        const raf2 = requestAnimationFrame(() => {
+          setVisible(true); // start fade-in
+          onCovered?.(); // np. zamknięcie menu — dokładnie w momencie startu fade-in
 
-      return () => {
-        clearTimeout(holdTimer);
-        clearTimeout(hideTimer);
-      };
-    }
+          const navTimer = setTimeout(() => {
+            // loader w pełni zasłania ekran -> DOPIERO TERAZ realna zmiana trasy
+            navigate(path);
 
-    // porównanie po ref, nie po state -> nie ma efektu "sam siebie przerywa"
-    if (location.pathname === displayedPathRef.current) return;
-
-    setMounted(true);
-    setVisible(false);
-
-    rafId1 = requestAnimationFrame(() => {
-      rafId2 = requestAnimationFrame(() => {
-        setVisible(true);
-
-        swapTimer = setTimeout(() => {
-          displayedPathRef.current = location.pathname;
-          setDisplayedLocation(location);
-
-          holdTimer = setTimeout(() => {
-            setVisible(false);
-
-            hideTimer = setTimeout(() => {
-              setMounted(false);
-            }, fadeOut);
-          }, hold);
-        }, fadeIn);
+            const holdTimer = setTimeout(() => {
+              setVisible(false);
+              const hideTimer = setTimeout(() => setMounted(false), fadeOut);
+              timers.current.push(hideTimer);
+            }, hold);
+            timers.current.push(holdTimer);
+          }, fadeIn);
+          timers.current.push(navTimer);
+        });
+        rafIds.current.push(raf2);
       });
-    });
+      rafIds.current.push(raf1);
+    },
+    [fadeIn, hold, fadeOut, navigate],
+  );
 
-    return () => {
-      cancelAnimationFrame(rafId1);
-      cancelAnimationFrame(rafId2);
-      clearTimeout(swapTimer);
-      clearTimeout(holdTimer);
-      clearTimeout(hideTimer);
-    };
-  }, [location, fadeIn, hold, fadeOut]); // <- displayedLocation.pathname USUNIĘTE z zależności
-
-  return { displayedLocation, visible, mounted };
+  return { visible, mounted, goTo };
 }
