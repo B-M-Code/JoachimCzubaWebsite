@@ -12,13 +12,9 @@ export default function Offer() {
         </div>
       </main>
 
-      <SubPageHeaderBlock
-        title={"Oferta"}
-        text={
-          "Wybierz plan dopasowany do swoich celów. Skuteczna kalistenika oparta na wiedzy i doświadczeniu."
-        }
-        subtext={"Teraz już bez wymówek, zrób to raz a dobrze."}
-      />
+      <div className={styles.OfferCards_container}>
+        <section></section>
+      </div>
     </>
   );
 }
