@@ -35,3 +35,19 @@ main {
     }
   }
 }
+
+section.s {
+  padding: 0;
+  margin: 0;
+}
+
+.banner {
+  width: 100svw;
+  aspect-ratio: 16/5;
+  background: url("../../../assets/omnie4.webp") no-repeat center center;
+  background-size: cover;
+
+  &:nth-of-type(1) {
+    background-image: url("../../../assets/omnie1.webp");
+  }
+}
