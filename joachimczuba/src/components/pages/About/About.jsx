@@ -2,13 +2,13 @@ import styles from "./About.module.scss";
 
 import SubPageHeaderBlock from "../../templates/SubPageHeaderBlock.jsx/SubPageHeaderBlock";
 import SubPageSubHeadingBlock from "../../templates/SubPageSubHeadingBlock/SubPageSubHeadingBlock";
+import SubPageSubHeadingBlockRev from "../../templates/SubPageSubHeadingBlockRev/SubPageSubHeadingBlockRev";
 
 export default function About() {
   return (
     <>
       <main>
         <div className={styles.wrapper}>
-          <div className={styles.gradient}></div>
           <div className={styles.img}></div>
         </div>
       </main>
@@ -23,13 +23,22 @@ export default function About() {
         <div className={styles.banner}></div>
         <section className={`${styles.text_content} && ${styles.s}`}>
           <SubPageSubHeadingBlock
-            title={"moje doświadczenie"}
+            title={"Technika i precyzja"}
             text={
-              "Jako doświadczony trener personalny, pomagam klientom osiągać ich cele fitness, niezależnie od poziomu zaawansowania."
+              "Zwracam uwagę na detale i dokładność w technice – to podstawa skutecznego i bezpiecznego treningu."
             }
             subtext={
-              "Moje podejście jest spersonalizowane i skoncentrowane na wynikach, które naprawdę mają znaczenie dla Ciebie."
+              "Trenuję głównie pull-a, co pozwala mi łączyć siłę z precyzją ruchu."
             }
+          />
+        </section>
+        <section className={`${styles.text_content} && ${styles.s}`}>
+          <SubPageSubHeadingBlockRev
+            title={"Pasja i zaangażowanie"}
+            text={
+              "Łączę pasję do ruchu z dbałością o technikę i szczegóły. Jeśli szukasz kogoś zaangażowanego i konsekwentnego - chętnie nawiążę współpracę."
+            }
+            subtext={"Czekam na Twoją wiadomość!"}
           />
         </section>
         <section className={`${styles.first_section} && ${styles.s}`}>

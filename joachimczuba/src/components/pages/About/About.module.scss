@@ -5,33 +5,46 @@ main {
   height: 85svh;
 
   .wrapper {
+    position: relative;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: flex-end;
+    overflow: hidden;
+  }
 
-    .img {
+  .img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../assets/APC_7547.webp");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+
+    // fade od góry -> w czarne tło
+    &::before {
+      content: "";
       position: absolute;
-      width: 100%;
-      height: 85svh;
-      background-image: url("../../../assets/APC_7547.webp");
-      background-size: cover;
-      background-position: center;
-      opacity: 0.8;
-
-      box-shadow: inset 0 0 200px 100px rgba(0, 0, 0, 0.3);
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 25%;
+      background: linear-gradient(to bottom, $black 0%, transparent 100%);
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .gradient {
-      position: relative;
+    // fade od dołu -> w czarne tło (łączy się z sekcją poniżej)
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 45%;
+      background: linear-gradient(to top, $black 0%, transparent 100%);
+      pointer-events: none;
       z-index: 1;
-      width: 100%;
-      height: 60%;
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0),
-        rgba(0, 0, 0, 1)
-      );
     }
   }
 }
@@ -43,11 +56,46 @@ section.s {
 
 .banner {
   width: 100svw;
-  aspect-ratio: 16/5;
+  aspect-ratio: 16/6;
   background: url("../../../assets/omnie4.webp") no-repeat center center;
   background-size: cover;
+  position: relative;
+  background-position: 50% 65%;
+
+  animation: banner-anim ease forwards;
+  animation-timeline: view();
+  animation-range: entry 0% cover 200%;
 
   &:nth-of-type(1) {
     background-image: url("../../../assets/omnie1.webp");
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 35%;
+    pointer-events: none;
+  }
+
+  &::before {
+    top: 0;
+    background: linear-gradient(to bottom, $black, transparent);
+  }
+
+  &::after {
+    bottom: 0;
+    background: linear-gradient(to top, $black, transparent);
+  }
+}
+
+@keyframes banner-anim {
+  from {
+    background-position: 50% 65%;
+  }
+  to {
+    background-position: 50% 35%;
   }
 }
