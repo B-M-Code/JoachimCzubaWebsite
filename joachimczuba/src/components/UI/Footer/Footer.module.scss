@@ -27,7 +27,20 @@ footer {
 
       a {
         text-decoration: none;
+        transition: all 0.25s ease;
+
+        &:hover {
+          opacity: 1;
+          filter: blur(0px);
+        }
       }
+    }
+  }
+
+  &:has(a:hover) {
+    a {
+      opacity: 0.75;
+      filter: blur(2px);
     }
   }
 
