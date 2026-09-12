@@ -23,17 +23,20 @@ export default function Offer() {
           <div className={styles.offercard_wrapper}>
             <div className={styles.text_container}>
               <div className={styles.header}>
-                <div className={styles.line}></div>
                 <h2>start progresji</h2>
+                <div className={styles.line}></div>
                 <p>
                   Optymalny plan treningowy zapewniający prawidłową progresję i
-                  samodzielne budowanie formy.
+                  samodzielne budowanie formy, dla osób, które chcą trenować
+                  świadomie i skutecznie, bez stałej obecności trenera. Łączy
+                  zaplanowaną progresję obciążeń ze wsparciem edukacyjnym,
+                  dzięki czemu każdy trening przybliża Cię do celu.
                 </p>
               </div>
               <div className={styles.line}></div>
               <ol>
-                <li>video instruktażowe</li>
-                <li>plan treningowy</li>
+                <li>Video instruktażowe</li>
+                <li>Plan treningowy</li>
               </ol>
             </div>
             <div className={styles.img}></div>

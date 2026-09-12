@@ -54,11 +54,14 @@ main {
 
     .offercard_wrapper {
       width: 100%;
+      // border: 1px dotted blue;
+      display: flex;
 
       .text_container {
         width: 50%;
         @include FlexCenter;
         align-items: flex-start;
+        // border: 1px dotted red;
 
         .line {
           width: 250px;
@@ -74,6 +77,108 @@ main {
           display: flex;
           flex-direction: column;
           align-items: flex-end;
+          width: 100%;
+
+          h2 {
+            font-size: $font-size-heading-m;
+            text-transform: uppercase;
+            margin: 40px 0;
+          }
+
+          p {
+            width: 600px;
+            font-size: $font-size-body;
+            line-height: 1.5;
+            text-align: right;
+            margin: 40px 0;
+          }
+        }
+
+        ol {
+          margin: 40px 0;
+          margin-left: 20%;
+          list-style-type: none;
+
+          li {
+            font-size: $font-size-body;
+            margin: 20px 0;
+            font-weight: 700;
+            letter-spacing: 1px;
+
+            &:before {
+              content: "";
+              background: $white;
+              display: inline-block;
+              width: 0.5rem;
+              aspect-ratio: 1/1;
+              margin-right: 1rem;
+              margin-bottom: 0.15rem;
+            }
+          }
+        }
+      }
+
+      .img {
+        width: 50%;
+        position: relative;
+        // border: 1px dotted green;
+
+        background-image: url("../../../assets/APC_6154.webp");
+        background-size: cover;
+
+        filter: contrast(1.1);
+
+        &:before {
+          content: "";
+          display: block;
+          width: 100%;
+          background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0)
+          );
+          position: absolute;
+          height: 100%;
+          z-index: 1;
+        }
+      }
+    }
+
+    .price_wrapper {
+      width: 70%;
+      margin-left: 30%;
+      margin-top: 20px;
+      padding: 40px;
+
+      border-top: 1px solid $white;
+
+      @include FlexCenter(row);
+      justify-content: space-between;
+
+      p {
+        font-size: $font-size-heading-m;
+        font-weight: 900;
+        letter-spacing: 3px;
+
+        border-bottom: 5px $white solid;
+      }
+
+      button {
+        background: transparent;
+        border: 3px solid $white;
+
+        padding: 7.5px 35px;
+
+        font-size: $font-size-subheading-s;
+        color: $white;
+        font-weight: 600;
+        letter-spacing: 3px;
+        cursor: pointer;
+        transition: 0.25s ease;
+
+        &:hover {
+          background: $white;
+          color: $black;
         }
       }
     }
