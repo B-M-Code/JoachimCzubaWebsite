@@ -57,7 +57,7 @@ footer {
       font-size: 22rem;
       font-weight: 900;
       letter-spacing: 2.5rem;
-      transform: translateY(50px);
+      transform: translate(20px, 50px);
 
       animation: text-anim ease forwards;
       animation-timeline: view();
@@ -68,6 +68,6 @@ footer {
 
 @keyframes text-anim {
   to {
-    transform: translateY(0px);
+    transform: translate(20px, 0px);
   }
 }
