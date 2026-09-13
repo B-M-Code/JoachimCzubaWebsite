@@ -21,7 +21,6 @@ main {
     background-position: center;
     opacity: 0.9;
 
-    // fade od góry -> w czarne tło
     &::before {
       content: "";
       position: absolute;
@@ -34,7 +33,6 @@ main {
       z-index: 1;
     }
 
-    // fade od dołu -> w czarne tło (łączy się z sekcją poniżej)
     &::after {
       content: "";
       position: absolute;

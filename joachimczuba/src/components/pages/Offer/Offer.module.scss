@@ -131,6 +131,10 @@ main {
 
         filter: contrast(1.1);
 
+        animation: img-anim-1 ease forwards;
+        animation-timeline: view();
+        animation-range: entry 0% cover 200%;
+
         &:before {
           content: "";
           display: block;
@@ -186,6 +190,14 @@ main {
       }
     }
 
+    &:nth-of-type(1) {
+      .offercard_wrapper {
+        .img {
+          background-size: 150% 150%;
+        }
+      }
+    }
+
     &:nth-of-type(2) {
       .offercard_wrapper {
         flex-direction: row-reverse;
@@ -219,6 +231,10 @@ main {
         .img {
           background-image: url("../../../assets/APC_6157.webp");
           transform: scaleX(-1);
+          background-size: 150% 150%;
+          animation-name: img-anim-2;
+          animation-timeline: view();
+          animation-range: entry 0% cover 200%;
         }
       }
 
@@ -234,8 +250,38 @@ main {
       .offercard_wrapper {
         .img {
           background-image: url("../../../assets/APC_7013.webp");
+          animation-name: img-anim-3;
+          animation-timeline: view();
+          animation-range: entry 0% cover 200%;
         }
       }
     }
+  }
+}
+
+@keyframes img-anim-1 {
+  from {
+    background-position: 50% 30%;
+  }
+  to {
+    background-position: 50% 60%;
+  }
+}
+
+@keyframes img-anim-2 {
+  from {
+    background-position: 50% 30%;
+  }
+  to {
+    background-position: 50% 60%;
+  }
+}
+
+@keyframes img-anim-3 {
+  from {
+    background-position: 50% 0%;
+  }
+  to {
+    background-position: 50% 25%;
   }
 }
