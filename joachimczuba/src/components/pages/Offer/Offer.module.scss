@@ -184,5 +184,57 @@ main {
         }
       }
     }
+
+    &:nth-of-type(2) {
+      .offercard_wrapper {
+        flex-direction: row-reverse;
+
+        .text_container {
+          align-items: flex-start;
+          text-align: right;
+          transform: translateX(-10%);
+
+          .line {
+            transform: translateX(0%);
+          }
+
+          .header {
+            align-items: flex-end;
+
+            h2 {
+              text-align: right;
+            }
+
+            p {
+              text-align: right;
+            }
+          }
+
+          ol {
+            text-align: left;
+          }
+        }
+
+        .img {
+          background-image: url("../../../assets/APC_6157.webp");
+          transform: scaleX(-1);
+        }
+      }
+
+      .price_wrapper {
+        margin-left: 0;
+        margin-right: 30%;
+
+        flex-direction: row-reverse;
+      }
+    }
+
+    &:nth-of-type(3) {
+      .offercard_wrapper {
+        .img {
+          background-image: url("../../../assets/APC_7013.webp");
+        }
+      }
+    }
   }
 }
